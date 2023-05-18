@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn,createUserWithGoogle } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -26,6 +26,17 @@ const Login = () => {
             });
     };
 
+    const handleLoginByGoogle=()=>{
+        createUserWithGoogle()
+        .then(result => {
+            const loggedInUser = result.user;
+            console.log(loggedInUser);
+        })
+        .catch((err) => {
+            console.log(err);
+            setErrorMessage(err.message)
+        })
+    }
 
     return (
         <Container className='w-25'>
@@ -58,7 +69,7 @@ const Login = () => {
 
                 <Form.Group className="mb-3">
                     <Button
-                        // onClick={handleLoginByGoogle}
+                         onClick={handleLoginByGoogle}
                         className="mb-2 rounded-circle d-flex align-items-center justify-content-center"
                         style={{
                             width: '40px',
