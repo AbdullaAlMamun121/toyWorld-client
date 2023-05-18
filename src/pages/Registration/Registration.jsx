@@ -1,19 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Registration = () => {
-
+    const { createUserByEmailPassword } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    
+
     const onSubmit = data => {
         // console.log(data);
         const name = data.name;
-        const email=data.email;
+        const email = data.email;
         const password = data.password;
+        const photo = data.photo;
         console.log(name, email, password);
+
+        createUserByEmailPassword(email, password)
+            .then(result => {
+                const loginUser = result.user;
+                updateUserProfile(result.user,name,photo)
+                console.log(loginUser);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     };
+
+    const updateUserProfile = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name,
+            photoURL: photo
+        })
+            .then(() => {
+                console.log('user profile updated');
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
+    }
 
     return (
         <Container className='w-25 mt-5'>
@@ -58,7 +84,7 @@ const Registration = () => {
                         {...register('photo', { required: true })}
                         isInvalid={errors.photo}
                     />
-                    
+
                 </Form.Group>
                 <br></br>
                 <Form.Text className="text-muted">
@@ -68,7 +94,7 @@ const Registration = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-                
+
             </Form>
         </Container>
     );

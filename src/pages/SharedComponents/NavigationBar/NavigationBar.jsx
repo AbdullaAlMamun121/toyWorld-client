@@ -34,12 +34,13 @@ const NavigationBar = () => {
                         </Nav>
                         <Nav>
                             {
-                                user && <Image title={user?.displayName} style={{ maxWidth: '40px', height: '40px' }} src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" roundedCircle />
+                                user && <Image title={user?.displayName} style={{ maxWidth: '40px', height: '40px' }} src={user?.photoURL} roundedCircle />
                             }
-                            <Nav.Link href="#deets">Login</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Logout
-                            </Nav.Link>
+                            {
+                                user ? <Link className='text-decoration-none d-flex align-items-center m-2'>Logout</Link>:
+                                <Link to="/login" className='text-decoration-none d-flex align-items-center m-2'>Login</Link>
+                            }
+                            
                         </Nav>
                     </Navbar.Collapse>
 

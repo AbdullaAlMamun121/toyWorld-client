@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-const Login = () => {
+import { AuthContext } from '../../providers/AuthProvider';
 
+const Login = () => {
+    const { signIn } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('');
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         // console.log(data);
@@ -12,11 +15,18 @@ const Login = () => {
         const password = data.password;
         console.log(email, password);
 
+        signIn(email, password)
+            .then(result => {
+                const loggedIn = result.user;
+                console.log(loggedIn);
+            })
+            .catch(err => {
+                setErrorMessage(err.message);
+                console.log(err.message);
+            });
     };
 
-    const handleLoginByGoogle = () => {
-        console.log('handleLoginByGoogle');
-    }
+
     return (
         <Container className='w-25'>
             <h2>Please Login</h2>
@@ -48,7 +58,7 @@ const Login = () => {
 
                 <Form.Group className="mb-3">
                     <Button
-                        onClick={handleLoginByGoogle}
+                        // onClick={handleLoginByGoogle}
                         className="mb-2 rounded-circle d-flex align-items-center justify-content-center"
                         style={{
                             width: '40px',
@@ -68,6 +78,7 @@ const Login = () => {
                     Submit
                 </Button>
                 <br />
+                <p>{errorMessage}</p>
             </Form>
         </Container>
     );
