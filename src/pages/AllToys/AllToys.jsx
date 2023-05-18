@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Container, Form, Table } from 'react-bootstrap';
+import {  Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AllToys = () => {
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    
     const [allToys, setAllToys] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/allToys?limit=20')
@@ -11,7 +16,8 @@ const AllToys = () => {
                 setAllToys(data);
             })
     }, [])
-    console.log(allToys)
+
+
     return (
         <div>
             <h3 className='text-center m-4'>ALL TOYS HERE:{allToys.length}</h3>
@@ -24,38 +30,38 @@ const AllToys = () => {
                 />
                 <Button variant="outline-success">Search</Button>
             </Form>
-            {
-                allToys.map((toy,index) => (
-                    <Container
-                    key={toy._id}
-                    >
-                        <Table striped="columns">
-                            <thead>
+                <Container>
+                    <Table striped="columns">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Seller</th>
+                                <th>Toy Name</th>
+                                <th>Sub-category</th>
+                                <th>Price</th>
+                                <th>Available Quantity</th>
+                                <th>View Details</th>
+                            </tr>
+                        </thead>
+                      
+                        {
+                            allToys.map((toy,index)=><tbody
+                            key={toy._id}
+                            >
                                 <tr>
-                                    <th>#</th>
-                                    <th>Seller</th>
-                                    <th>Toy Name</th>
-                                    <th>Sub-category</th>
-                                    <th>Price</th>
-                                    <th>Available Quantity</th>
-                                    <th>View Details</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{index+1}</td>
+                                    <td>{index + 1}</td>
                                     <td>{toy.data.sellerName}</td>
                                     <td>{toy.data.name}</td>
                                     <td>{toy.data.subCategory}</td>
                                     <td>{toy.data.price}</td>
                                     <td>{toy.data.quantity}</td>
-                                    <td><Button>View</Button></td>
+                                    <td><Link className='btn btn-success' to={`/ToyViewDetails/${toy._id}`}>View</Link></td>
                                 </tr>
-                            </tbody>
-                        </Table>
-                    </Container>
-                ))
-            }
+                            </tbody>)
+                        }
+                       
+                    </Table>
+                </Container>
         </div>
     );
 };

@@ -2,13 +2,20 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const { signIn,createUserWithGoogle } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
+    const from = location.state?.from?.pathname || '/';
+    
     const onSubmit = data => {
         // console.log(data);
         const email = data.email;
@@ -19,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const loggedIn = result.user;
                 console.log(loggedIn);
+                navigate(from,{replace:true});
             })
             .catch(err => {
                 setErrorMessage(err.message);
@@ -31,6 +39,7 @@ const Login = () => {
         .then(result => {
             const loggedInUser = result.user;
             console.log(loggedInUser);
+            navigate(from,{replace:true});
         })
         .catch((err) => {
             console.log(err);
