@@ -52,9 +52,9 @@ const CreateToy = () => {
                     <label className="form-label">Sub-category</label>
                     <select className="form-select" {...register('subCategory', { required: true })}>
                         <option value="">Select a sub-category</option>
-                        <option value="Math Toys">Math Toys</option>
-                        <option value="Language Toys">Language Toys</option>
-                        <option value="Science Toys">Science Toys</option>
+                        <option value="sports">Sports  Car</option>
+                        <option value="police">Police Car</option>
+                        <option value="regular">Regular Car</option>
                     </select>
                     {errors.subCategory && <span className="text-danger">This field is required</span>}
                 </div>
