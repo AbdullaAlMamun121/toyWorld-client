@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form, Image, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 
 const NavigationBar = () => {
-
+    const { user } = useContext(AuthContext);
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -32,7 +33,9 @@ const NavigationBar = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Image style={{maxWidth:'40px', height:'40px'}} src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" roundedCircle />
+                            {
+                                user && <Image title={user?.displayName} style={{ maxWidth: '40px', height: '40px' }} src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" roundedCircle />
+                            }
                             <Nav.Link href="#deets">Login</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
                                 Logout

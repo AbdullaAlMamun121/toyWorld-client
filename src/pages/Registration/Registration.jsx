@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const Registration = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    
     const onSubmit = data => {
         // console.log(data);
         const name = data.name;
@@ -15,9 +16,9 @@ const Registration = () => {
     };
 
     return (
-        <Container className='w-25'>
+        <Container className='w-25 mt-5'>
             <h2>Please Registration</h2>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(onSubmit)} className='my-2'>
                 <Form.Group controlId="formName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
