@@ -22,9 +22,9 @@ const NavigationBar = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Link className='text-decoration-none d-flex align-items-center  m-2' to="/home">Home</Link>
-                             <Link className='text-decoration-none d-flex align-items-center  m-2' to="/allToys">All Toys</Link>
-                            
+                            <Link className='text-decoration-none d-flex align-items-center  m-2' to="/">Home</Link>
+                            <Link className='text-decoration-none d-flex align-items-center  m-2' to="/allToys">All Toys</Link>
+
                             {
                                 user && <Link className='text-decoration-none d-flex align-items-center  m-2' to="/myToys">My Toys</Link>
                             }
