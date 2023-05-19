@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from "react-hook-form";
+import { AuthContext } from '../../providers/AuthProvider';
 
 const CreateToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const {user} = useContext(AuthContext);
     const onSubmit = (data) => {
-        console.log(data);
-
+       
         fetch('http://localhost:5000/createToy', {
             method: 'POST',
             headers: {
@@ -16,7 +16,8 @@ const CreateToy = () => {
         })
             .then(res => res.json())
             .then(info => {
-                console.log(info)
+                alert('Toy created successfully!');
+                console.log(info);
             })
     };
 
@@ -38,13 +39,13 @@ const CreateToy = () => {
 
                 <div className="mb-3">
                     <label className="form-label">Seller Name</label>
-                    <input type="text" className="form-control" {...register('sellerName', { required: true })} />
+                    <input defaultValue={user?.displayName} type="text" className="form-control" {...register('sellerName', { required: true })} />
                     {errors.sellerName && <span className="text-danger">This field is required</span>}
                 </div>
 
                 <div className="mb-3">
                     <label className="form-label">Seller Email</label>
-                    <input type="email" className="form-control" {...register('sellerEmail', { required: true })} />
+                    <input defaultValue={user?.email} type="email" className="form-control" {...register('sellerEmail', { required: true })} />
                     {errors.sellerEmail && <span className="text-danger">This field is required</span>}
                 </div>
 
