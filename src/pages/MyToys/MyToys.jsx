@@ -19,7 +19,18 @@ const MyToys = () => {
     }, [user]);
 
     const handleToyUpdate = (data) => {
-        console.log(data)
+        
+        fetch(`http://localhost:5000/updateMyToy/${data._id}`,{
+            method:'PUT',
+            headers:{
+                'content-type': 'application/json',
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
     }
 
     return (
