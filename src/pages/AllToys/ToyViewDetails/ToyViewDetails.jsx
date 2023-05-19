@@ -30,7 +30,7 @@ const ToyViewDetails = () => {
                         <b>Quantity:</b> {info.data.quantity}
                     </Card.Text>
                     <Card.Text>
-                        <b>Details:</b> {info.data.details}
+                        <b>Details:</b> {info.data.description}
                     </Card.Text>
                 </Card.Body>
             </Card>

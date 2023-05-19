@@ -84,7 +84,6 @@ const DisplayCategory = () => {
                             <Col key={index} sm={6} md={6} lg={4} xl={3}>
                                 <Card className="mb-4 shadow mt-4">
                                     <Card.Img variant="top" src={category.data.pictureUrl} />
-
                                     <Card.Body>
                                         <Card.Title>Name:{category.data.name}</Card.Title>
                                         <Card.Text>Price:{category.data.price}</Card.Text>

@@ -8,6 +8,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
+    const [control,setControl] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myToys/${user?.email}`)
@@ -16,7 +17,7 @@ const MyToys = () => {
                 console.log(data)
                 setMyToys(data);
             })
-    }, [user]);
+    }, [user,control]);
 
     const handleToyUpdate = (data) => {
         
@@ -29,8 +30,28 @@ const MyToys = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            if(data.modifiedCount > 0){
+                alert('Data Updated successful');
+                setControl(!control);
+            }
         })
+    }
+
+    const handleDeleteToy = id =>{
+        const confirmationMessage = confirm('Are you sure you want to delete');
+        if(confirmationMessage){
+            fetch(`http://localhost:5000/myToys/${id}`,{
+                method:'DELETE',
+            })
+            .then(res => res.json())
+            .then(data =>{
+                if(data.deletedCount > 0){
+                    alert('Deleted successfully');
+                    const remaining = myToys.filter(myToy => myToy._id !==id);
+                    setMyToys(remaining);
+                }
+            })
+        }
     }
 
     return (
@@ -74,7 +95,7 @@ const MyToys = () => {
                                     toy={toy}
                                     handleToyUpdate={handleToyUpdate}
                                 />
-                                <td><Button className='btn btn-success' to="/">Delete</Button></td>
+                                <td><Button onClick={()=>handleDeleteToy(toy._id)} className='btn btn-success' to="/">Delete</Button></td>
                             </tr>
                         </tbody>)
                     }
