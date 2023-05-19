@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Button, Container, Modal, Table } from 'react-bootstrap';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import UpdateMyToys from './UpdateMyToys/UpdateMyToys';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
+    const [modalShow, setModalShow] = React.useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myToys/${user?.email}`)
@@ -15,6 +17,10 @@ const MyToys = () => {
                 setMyToys(data);
             })
     }, [user]);
+
+    const handleToyUpdate = (data) => {
+        console.log(data)
+    }
 
     return (
         <div>
@@ -47,14 +53,24 @@ const MyToys = () => {
                                 <td>{toy.data.price}</td>
                                 <td>{toy.data.quantity}</td>
                                 <td><Link className='btn btn-success' to={`/ToyViewDetails/${toy._id}`}>View</Link></td>
-                                <td><Link className='btn btn-success' to="/">Update</Link></td>
-                                <td><Link className='btn btn-success' to="/">Delete</Link></td>
+                                <Button variant="primary" onClick={() => setModalShow(true)}>
+                                    Edit
+                                </Button>
+
+                                <UpdateMyToys
+                                    show={modalShow}
+                                    onHide={() => setModalShow(false)}
+                                    toy={toy}
+                                    handleToyUpdate={handleToyUpdate}
+                                />
+                                <td><Button className='btn btn-success' to="/">Delete</Button></td>
                             </tr>
                         </tbody>)
                     }
 
                 </Table>
             </Container>
+
         </div>
     );
 };
