@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Gallery from '../Gallery/Gallery';
+import DisplayCategory from '../DisplayCategory/DisplayCategory';
 
 const Home = () => {
     const gallery = useLoaderData();
@@ -16,6 +17,10 @@ const Home = () => {
 
                     </Gallery>)
                 }
+            </div>
+            <h2 className='mt-5'>Sub category</h2>
+            <div>
+                <DisplayCategory></DisplayCategory>
             </div>
         </div>
     );
