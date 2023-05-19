@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { TabList, TabPanel, Tabs, Tab } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -50,7 +51,7 @@ const DisplayCategory = () => {
                                         <Card.Title>Name:{category.data.name}</Card.Title>
                                         <Card.Text>Price:{category.data.price}</Card.Text>
                                         <Card.Text>Rating:{category.data.rating}</Card.Text>
-                                        <Button variant="primary">View Details</Button>
+                                        <Link className='btn btn-primary' to={`/ToyViewDetails/${category._id}`}>View Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -69,7 +70,7 @@ const DisplayCategory = () => {
                                         <Card.Title>Name:{category.data.name}</Card.Title>
                                         <Card.Text>Price:{category.data.price}</Card.Text>
                                         <Card.Text>Rating:{category.data.rating}</Card.Text>
-                                        <Button variant="primary">View Details</Button>
+                                        <Link className='btn btn-primary' to={`/ToyViewDetails/${category._id}`}>View Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -88,7 +89,7 @@ const DisplayCategory = () => {
                                         <Card.Title>Name:{category.data.name}</Card.Title>
                                         <Card.Text>Price:{category.data.price}</Card.Text>
                                         <Card.Text>Rating:{category.data.rating}</Card.Text>
-                                        <Button variant="primary">View Details</Button>
+                                        <Link className='btn btn-primary' to={`/ToyViewDetails/${category._id}`}>View Details</Link>
                                     </Card.Body>
                                 </Card>
                             </Col>
