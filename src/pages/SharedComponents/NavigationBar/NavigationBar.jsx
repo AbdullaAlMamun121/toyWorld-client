@@ -2,11 +2,15 @@ import React, { useContext } from 'react';
 import { Button, Container, Form, Image, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { Tab, TabList, Tabs } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
+
+
+
 
     const handleLogout = () => {
         logOut()
@@ -46,6 +50,26 @@ const NavigationBar = () => {
                                     </TabPanel>
                                 ))}
                             </Tabs> */}
+                            <Tabs>
+                                <TabList>
+                                    <Tab>Category 1</Tab>
+                                    <Tab>Category 2</Tab>
+                                    <Tab>Category 3</Tab>
+                                </TabList>
+
+                                <TabPanel>
+                                    <h4>Sub-categories of Category 1</h4>
+                                    {/* Render sub-categories for Category 1 */}
+                                </TabPanel>
+                                <TabPanel>
+                                    <h4>Sub-categories of Category 2</h4>
+                                    {/* Render sub-categories for Category 2 */}
+                                </TabPanel>
+                                <TabPanel>
+                                    <h4>Sub-categories of Category 3</h4>
+                                    {/* Render sub-categories for Category 3 */}
+                                </TabPanel>
+                            </Tabs>
                         </Nav>
                         <Nav>
                             {
