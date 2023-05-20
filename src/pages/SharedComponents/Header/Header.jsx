@@ -1,11 +1,10 @@
 import React from 'react';
 import { Carousel, Nav, Navbar } from 'react-bootstrap';
-import NavigationBar from '../NavigationBar/NavigationBar';
 
 const Header = () => {
     return (
         <div>
-            <NavigationBar></NavigationBar>
+            
             <Carousel slide={false}>
                 <Carousel.Item>
                     <img

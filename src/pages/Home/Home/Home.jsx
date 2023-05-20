@@ -4,6 +4,7 @@ import Gallery from '../Gallery/Gallery';
 import DisplayCategory from '../DisplayCategory/DisplayCategory';
 import Aos from 'aos';
 import useTitle from '../../../hooks/useTitle';
+import Header from '../../SharedComponents/Header/Header';
 
 
 const Home = () => {
@@ -17,8 +18,8 @@ const Home = () => {
     }, []);
     return (
         <div className='text-center'>
+            <Header></Header>
             <h2 className='mt-4'>Our Gallery</h2>
-
             <div data-aos="flip-down" className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 container mx-auto mt-5">
                 {
                     gallery.map(image => <Gallery
