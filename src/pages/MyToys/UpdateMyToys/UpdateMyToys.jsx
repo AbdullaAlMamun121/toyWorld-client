@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import useTitle from '../../../hooks/useTitle';
 
 const UpdateMyToys = (props) => {
+    useTitle('Update Toy');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { handleToyUpdate } = props;
     return (

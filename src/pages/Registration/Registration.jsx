@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../hooks/useTitle';
 
 const Registration = () => {
+    useTitle('Register');
     const { createUserByEmailPassword } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 

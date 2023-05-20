@@ -1,17 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Container, Modal, Table } from 'react-bootstrap';
+import { Button, Container, Table } from 'react-bootstrap';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import UpdateMyToys from './UpdateMyToys/UpdateMyToys';
+import useTitle from '../../hooks/useTitle';
+
 
 const MyToys = () => {
+    
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
     const [control, setControl] = useState(false);
     const [sortOrder, setSortOrder] = useState('asc');
     const [sortBy, setSortBy] = useState('price');
-
+   useTitle('My Toys');
     const handleSortOrder = (field) => {
         const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
         setSortOrder(newSortOrder);

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import useTitle from '../../../hooks/useTitle';
 
 const Gallery = ({ image }) => {
+    useTitle('Gallery');
     const { imageUrl, title, description } = image;
     return (
         <Container>

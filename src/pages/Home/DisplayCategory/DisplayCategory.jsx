@@ -3,8 +3,10 @@ import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { TabList, TabPanel, Tabs, Tab } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import useTitle from '../../../hooks/useTitle';
 
 const DisplayCategory = () => {
+    useTitle('Category');
     const [catOne, setCatOne] = useState([]);
     const [catTwo, setCatTwo] = useState([]);
     const [catThree, setCatThree] = useState([]);

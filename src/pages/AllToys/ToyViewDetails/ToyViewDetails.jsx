@@ -1,8 +1,10 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const ToyViewDetails = () => {
+    useTitle('Toy Details');
     const info = useLoaderData();
     console.log(info);
     return (

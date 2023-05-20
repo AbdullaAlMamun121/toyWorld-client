@@ -4,9 +4,10 @@ import { useForm } from "react-hook-form";
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-
+    useTitle('Login');
     const navigate = useNavigate();
     const location = useLocation();
 
