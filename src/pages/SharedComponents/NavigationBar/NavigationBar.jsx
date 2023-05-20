@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import {  Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-
+import logo from '../../../../src/assets/logo.jpg';
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
  
@@ -16,7 +16,8 @@ const NavigationBar = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Toy world</Navbar.Brand>
+                    <Image style={{width:"40px", height:"40px",borderRadius:"50%"}} src={logo}></Image>
+                    <Navbar.Brand href="#home" className='m-2'>Toy world</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -24,7 +25,7 @@ const NavigationBar = () => {
                             <Link className='text-decoration-none d-flex align-items-center  m-2' to="/allToys">All Toys</Link>
                             {user && <Link className='text-decoration-none d-flex align-items-center  m-2' to="/myToys">My Toys</Link>}
                             {user && <Link className='text-decoration-none d-flex align-items-center  m-2' to="/createToy">Add A Toy</Link>}
-                            <Link className='text-decoration-none d-flex align-items-center  m-2' to="/home">Blogs</Link>
+                            <Link className='text-decoration-none d-flex align-items-center  m-2' to="/blog">Blogs</Link>
 
                           
                         </Nav>

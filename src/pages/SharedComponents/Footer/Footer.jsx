@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-
+import logo from '../../../../src/assets/logo.jpg';
 const Footer = () => {
     return (
         <footer className="bg-dark text-white">
@@ -22,7 +22,7 @@ const Footer = () => {
                 <Row className="mt-4">
                     <Col md={4} className="text-center">
                         <div className="logo-section">
-                            <img src="logo.png" alt="Logo" />
+                            <img style={{width:"50px", height:"40px"}} src={logo} alt="Logo" />
                         </div>
                         <h5>About Us</h5>
                         <p>Our Company selling most beautiful toys in the hole countries</p>
