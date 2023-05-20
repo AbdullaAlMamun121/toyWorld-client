@@ -7,6 +7,7 @@ import useTitle from '../../../hooks/useTitle';
 import Header from '../../SharedComponents/Header/Header';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import product from '../../../assets/product.jpg';
+import KidsCar from '../KidsCar/KidsCar';
 
 const Home = () => {
     useTitle('Home');
@@ -44,7 +45,7 @@ const Home = () => {
                             <div className="section-content">
                                 <h2 className="section-title">Discover Our Products</h2>
                                 <p className="section-description">
-                                The remote control car is a popular car toy that allows children to control the movements of a miniature car using a handheld remote. It provides an exciting and interactive play experience, allowing kids to drive the car forward, backward, and even perform stunts.
+                                    The remote control car is a popular car toy that allows children to control the movements of a miniature car using a handheld remote. It provides an exciting and interactive play experience, allowing kids to drive the car forward, backward, and even perform stunts.
                                 </p>
                                 <Button variant="danger" className="btn-lg">Learn More</Button>
                             </div>
@@ -55,6 +56,7 @@ const Home = () => {
                     </Row>
                 </Container>
             </section>
+            <KidsCar></KidsCar>
         </div>
     );
 };
