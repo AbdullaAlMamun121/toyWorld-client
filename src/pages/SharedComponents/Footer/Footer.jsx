@@ -24,7 +24,7 @@ const Footer = () => {
                         <div className="logo-section">
                             <img style={{width:"50px", height:"40px"}} src={logo} alt="Logo" />
                         </div>
-                        <h5>About Us</h5>
+                        <h5>Toy World</h5>
                         <p>Our Company selling most beautiful toys in the hole countries</p>
                     </Col>
                     <Col md={4} className="text-center">
