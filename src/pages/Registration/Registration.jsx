@@ -89,13 +89,14 @@ const Registration = () => {
 
                 </Form.Group>
                 <br></br>
+                
+                <Button className="w-full" variant="primary" type="submit">
+                    Register
+                </Button>
+                <br></br>
                 <Form.Text className="text-muted">
                     Already have an account? <Link to="/login">Login</Link>
                 </Form.Text>
-                <br></br>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
 
             </Form>
         </Container>

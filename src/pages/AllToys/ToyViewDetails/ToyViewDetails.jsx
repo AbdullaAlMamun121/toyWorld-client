@@ -6,12 +6,12 @@ import useTitle from '../../../hooks/useTitle';
 const ToyViewDetails = () => {
     useTitle('Toy Details');
     const info = useLoaderData();
-    console.log(info);
+    console.log(info.data.pictureUrl);
     return (
         <Container className='mb-4 shadow-lg rounded'>
             <h3 className='text-center mt-4'>Toy View Details</h3>
             <Card className='border-0'>
-                <Card.Img variant={info.data.pictureUrl} />
+                <Card.Img style={{width:"100%", height:"80vh"}} src={info.data.pictureUrl} />
                 <Card.Body>
                     <Card.Text>
                         <b> Name:</b>{info.data.name}
