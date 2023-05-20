@@ -1,13 +1,11 @@
 import React from 'react';
-import {  Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const Gallery = ({ image }) => {
     const { imageUrl, title, description } = image;
     return (
         <Container>
-            <div>
-                <img src={imageUrl} className="img-fluid w-25" />
-            </div>
+            <img src={imageUrl} className="img-fluid w-100 mb-2 rounded" />
         </Container>
     );
 };
