@@ -8,49 +8,57 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
-    const [control,setControl] = useState(false);
+    const [control, setControl] = useState(false);
+    const [sortOrder, setSortOrder] = useState('asc');
+    const [sortBy, setSortBy] = useState('price');
+
+    const handleSortOrder = (field) => {
+        const newSortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+        setSortOrder(newSortOrder);
+        setSortBy(field);
+    };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`http://localhost:5000/myToys/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortBy}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setMyToys(data);
             })
-    }, [user,control]);
+    }, [user, control, sortOrder, sortBy]);
 
     const handleToyUpdate = (data) => {
-        
-        fetch(`http://localhost:5000/updateMyToy/${data._id}`,{
-            method:'PUT',
-            headers:{
+
+        fetch(`http://localhost:5000/updateMyToy/${data._id}`, {
+            method: 'PUT',
+            headers: {
                 'content-type': 'application/json',
             },
-            body:JSON.stringify(data)
+            body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0){
-                alert('Data Updated successful');
-                setControl(!control);
-            }
-        })
-    }
-
-    const handleDeleteToy = id =>{
-        const confirmationMessage = confirm('Are you sure you want to delete');
-        if(confirmationMessage){
-            fetch(`http://localhost:5000/myToys/${id}`,{
-                method:'DELETE',
-            })
             .then(res => res.json())
-            .then(data =>{
-                if(data.deletedCount > 0){
-                    alert('Deleted successfully');
-                    const remaining = myToys.filter(myToy => myToy._id !==id);
-                    setMyToys(remaining);
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('Data Updated successful');
+                    setControl(!control);
                 }
             })
+    }
+
+    const handleDeleteToy = id => {
+        const confirmationMessage = confirm('Are you sure you want to delete');
+        if (confirmationMessage) {
+            fetch(`http://localhost:5000/myToys/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Deleted successfully');
+                        const remaining = myToys.filter(myToy => myToy._id !== id);
+                        setMyToys(remaining);
+                    }
+                })
         }
     }
 
@@ -58,6 +66,10 @@ const MyToys = () => {
         <div>
             <h3 className='text-center m-4'>MY TOYS HERE: {myToys.length}</h3>
             <Container>
+               
+                <Button onClick={() => handleSortOrder('price')} className='mb-2'>
+                    Sort by Price ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
+                </Button>
                 <Table striped="columns">
                     <thead>
                         <tr>
@@ -95,7 +107,7 @@ const MyToys = () => {
                                     toy={toy}
                                     handleToyUpdate={handleToyUpdate}
                                 />
-                                <td><Button onClick={()=>handleDeleteToy(toy._id)} className='btn btn-success' to="/">Delete</Button></td>
+                                <td><Button onClick={() => handleDeleteToy(toy._id)} className='btn btn-success' to="/">Delete</Button></td>
                             </tr>
                         </tbody>)
                     }
