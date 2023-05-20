@@ -67,7 +67,7 @@ const MyToys = () => {
 
     return (
         <div>
-            <h3 className='text-center m-4'>MY TOYS HERE: {myToys.length}</h3>
+            <h3 className='text-center m-4'>MY TOYS HERE</h3>
             <Container>
                
                 <Button onClick={() => handleSortOrder('price')} className='mb-2'>

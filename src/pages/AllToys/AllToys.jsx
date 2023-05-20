@@ -26,7 +26,7 @@ const AllToys = () => {
     }
     return (
         <div>
-            <h3 className='text-center m-4'>ALL TOYS HERE:{allToys.length}</h3>
+            <h3 className='text-center m-4'>ALL TOYS HERE</h3>
             <Form className="d-flex w-25 mx-auto mb-3">
                 <input onChange={(e) => setSearchText(e.target.value)} placeholder='Please Search By Name' type='text' className='p-1' />
                 <Button onClick={handleSearch} variant="outline-success">Search</Button>
