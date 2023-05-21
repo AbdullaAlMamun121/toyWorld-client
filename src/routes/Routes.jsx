@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader:()=>fetch('http://localhost:5000/gallery')
+            loader:()=>fetch('https://toy-assignment-server-omega.vercel.app/gallery')
         },
         {
             path:"login",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         {
           path:'ToyViewDetails/:id',
           element:<PrivateRoute><ToyViewDetails></ToyViewDetails></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/ToyViewDetails/${params.id}`)
+          loader:({params})=>fetch(`https://toy-assignment-server-omega.vercel.app/ToyViewDetails/${params.id}`)
         },
         {
           path:'myToys',

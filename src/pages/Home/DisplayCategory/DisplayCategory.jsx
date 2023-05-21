@@ -17,7 +17,7 @@ const DisplayCategory = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/allToys')
+        fetch('https://toy-assignment-server-omega.vercel.app/allToys')
             .then(res => res.json())
             .then(data => {
                 const categoryOne = data.filter(category => category.data.subCategory === "sports");

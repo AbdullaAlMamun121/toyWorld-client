@@ -9,7 +9,7 @@ const CreateToy = () => {
     const {user} = useContext(AuthContext);
     const onSubmit = (data) => {
        
-        fetch('http://localhost:5000/createToy', {
+        fetch('https://toy-assignment-server-omega.vercel.app/createToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

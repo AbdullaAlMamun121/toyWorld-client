@@ -22,7 +22,7 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortBy}`)
+        fetch(`https://toy-assignment-server-omega.vercel.app/myToys/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortBy}`)
             .then(res => res.json())
             .then(data => {
                 // Convert price from string to number
@@ -38,7 +38,7 @@ const MyToys = () => {
 
 
     const handleToyUpdate = (data) => {
-        fetch(`http://localhost:5000/updateMyToy/${data._id}`, {
+        fetch(`https://toy-assignment-server-omega.vercel.app/updateMyToy/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -57,7 +57,7 @@ const MyToys = () => {
     const handleDeleteToy = (id) => {
         const confirmationMessage = window.confirm('Are you sure you want to delete?');
         if (confirmationMessage) {
-            fetch(`http://localhost:5000/myToys/${id}`, {
+            fetch(`https://toy-assignment-server-omega.vercel.app/myToys/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
