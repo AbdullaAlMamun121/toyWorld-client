@@ -11,7 +11,7 @@ const MyToys = () => {
     const [modalShow, setModalShow] = useState({});
     const [control, setControl] = useState(false);
     const [sortOrder, setSortOrder] = useState('asc');
-    const [sortBy, setSortBy] = useState('price');
+    const [sortBy, setSortBy] = useState("price");
     useTitle('My Toys');
 
     const handleSortOrder = (field) => {
@@ -20,14 +20,22 @@ const MyToys = () => {
         setSortBy(field);
     };
 
+
     useEffect(() => {
         fetch(`http://localhost:5000/myToys/${user?.email}?sortOrder=${sortOrder}&sortBy=${sortBy}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // Convert price from string to number
+                data.forEach(toy => {
+                    toy.data.price = parseInt(toy.data.price);
+                });
+
                 setMyToys(data);
             });
-    }, [user, control, sortOrder, sortBy]);
+    }, [user, sortOrder, sortBy, control]);
+
+
+
 
     const handleToyUpdate = (data) => {
         fetch(`http://localhost:5000/updateMyToy/${data._id}`, {
@@ -40,14 +48,14 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert('Data Updated successfully');
+                    alert('Data updated successfully');
                     setControl(!control);
                 }
             });
     };
 
     const handleDeleteToy = (id) => {
-        const confirmationMessage = confirm('Are you sure you want to delete?');
+        const confirmationMessage = window.confirm('Are you sure you want to delete?');
         if (confirmationMessage) {
             fetch(`http://localhost:5000/myToys/${id}`, {
                 method: 'DELETE',
@@ -74,7 +82,7 @@ const MyToys = () => {
         <div>
             <h3 className='text-center m-4'>MY TOYS HERE</h3>
             <Container>
-                <Button onClick={() => handleSortOrder('price')} className='mb-2'>
+                <Button onClick={() => handleSortOrder("price")} className='mb-2'>
                     Sort by Price ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
                 </Button>
                 <Table striped>
@@ -101,21 +109,22 @@ const MyToys = () => {
                                 <td>{toy.data.price}</td>
                                 <td>{toy.data.quantity}</td>
                                 <td>
-                                    <Link className='btn btn-success' to={`/ToyViewDetails/${toy._id}`}>View</Link>
+                                    <Link className='btn btn-success' to={`/ToyViewDetails/${toy._id}`}>
+                                        View
+                                    </Link>
                                 </td>
                                 <td>
-                                    <Button
-                                        variant="primary"
-                                        onClick={() => handleEditButtonClick(toy._id)}
-                                    >
+                                    <Button variant='primary' onClick={() => handleEditButtonClick(toy._id)}>
                                         Edit
                                     </Button>
                                     <UpdateMyToys
                                         show={modalShow[toy._id] || false}
-                                        onHide={() => setModalShow(prevState => ({
-                                            ...prevState,
-                                            [toy._id]: false,
-                                        }))}
+                                        onHide={() =>
+                                            setModalShow(prevState => ({
+                                                ...prevState,
+                                                [toy._id]: false,
+                                            }))
+                                        }
                                         toy={toy}
                                         handleToyUpdate={handleToyUpdate}
                                     />
@@ -124,7 +133,7 @@ const MyToys = () => {
                                     <Button
                                         onClick={() => handleDeleteToy(toy._id)}
                                         className='btn btn-success'
-                                        to="/"
+                                        to='/'
                                     >
                                         Delete
                                     </Button>

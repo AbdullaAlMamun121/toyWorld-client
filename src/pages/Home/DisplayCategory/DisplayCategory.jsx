@@ -37,9 +37,9 @@ const DisplayCategory = () => {
             <Tabs selectedIndex={activeTab} onSelect={handleTabSelect}>
                 <div className="d-flex justify-content-center">
                     <TabList className="nav nav-tabs">
-                        <Tab className="nav-item nav-link">Category One</Tab>
-                        <Tab className="nav-item nav-link">Category Two</Tab>
-                        <Tab className="nav-item nav-link">Category Three</Tab>
+                        <Tab className="nav-item nav-link">Category Sports</Tab>
+                        <Tab className="nav-item nav-link">Category Police</Tab>
+                        <Tab className="nav-item nav-link">Category Regular</Tab>
                     </TabList>
                 </div>
                 <TabPanel>
