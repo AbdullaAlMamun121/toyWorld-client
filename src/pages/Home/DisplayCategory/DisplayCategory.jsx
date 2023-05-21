@@ -47,7 +47,7 @@ const DisplayCategory = () => {
                         {catOne.map((category, index) => (
                             <Col key={index} sm={6} md={6} lg={4} xl={3}>
                                 <Card className="mb-4 shadow mt-4">
-                                    <Card.Img variant="top" src={category.data.pictureUrl} />
+                                    <Card.Img variant="top" src={category.data.pictureUrl} style={{ width: '100%', height: '200px' }} />
 
                                     <Card.Body>
                                         <Card.Title>Name:{category.data.name}</Card.Title>
@@ -66,7 +66,7 @@ const DisplayCategory = () => {
                         {catTwo.map((category, index) => (
                             <Col key={index} sm={6} md={6} lg={4} xl={3}>
                                 <Card className="mb-4 shadow mt-4">
-                                    <Card.Img variant="top" src={category.data.pictureUrl} />
+                                    <Card.Img variant="top" src={category.data.pictureUrl}  style={{ width: '100%', height: '200px' }} />
 
                                     <Card.Body>
                                         <Card.Title>Name:{category.data.name}</Card.Title>
@@ -85,7 +85,7 @@ const DisplayCategory = () => {
                         {catThree.map((category, index) => (
                             <Col key={index} sm={6} md={6} lg={4} xl={3}>
                                 <Card className="mb-4 shadow mt-4">
-                                    <Card.Img variant="top" src={category.data.pictureUrl} />
+                                    <Card.Img variant="top" src={category.data.pictureUrl}  style={{ width: '100%', height: '200px' }}/>
                                     <Card.Body>
                                         <Card.Title>Name:{category.data.name}</Card.Title>
                                         <Card.Text>Price:{category.data.price}</Card.Text>

@@ -4,10 +4,10 @@ import useTitle from '../../../hooks/useTitle';
 
 const Gallery = ({ image }) => {
     useTitle('Gallery');
-    const { imageUrl, title, description } = image;
+    const { imageUrl } = image;
     return (
         <Container>
-            <img src={imageUrl} className="img-fluid w-100 mb-2 rounded" />
+            <img src={imageUrl} className="img-fluid w-100 h-75 mb-2 rounded" />
         </Container>
     );
 };
