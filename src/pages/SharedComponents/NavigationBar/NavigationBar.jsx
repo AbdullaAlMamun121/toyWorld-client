@@ -53,20 +53,20 @@ const NavigationBar = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2"
+                className="text-decoration-none d-flex align-items-center  m-2 text-white"
                 to="/"
               >
                 Home
               </Link>
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2"
+                className="text-decoration-none d-flex align-items-center  m-2 text-white"
                 to="/allToys"
               >
                 All Toys
               </Link>
               {user && (
                 <Link
-                  className="text-decoration-none d-flex align-items-center  m-2"
+                  className="text-decoration-none d-flex align-items-center  m-2 text-white"
                   to="/myToys"
                 >
                   My Toys
@@ -74,14 +74,14 @@ const NavigationBar = () => {
               )}
               {user && (
                 <Link
-                  className="text-decoration-none d-flex align-items-center  m-2"
+                  className="text-decoration-none d-flex align-items-center  m-2 text-white"
                   to="/createToy"
                 >
                   Add A Toy
                 </Link>
               )}
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2"
+                className="text-decoration-none d-flex align-items-center  m-2 text-white"
                 to="/blog"
               >
                 Blogs
@@ -99,14 +99,14 @@ const NavigationBar = () => {
               {user ? (
                 <Link
                   onClick={handleLogout}
-                  className="text-decoration-none d-flex align-items-center m-2"
+                  className="text-decoration-none d-flex align-items-center m-2 text-white"
                 >
                   Logout
                 </Link>
               ) : (
                 <Link
                   to="/login"
-                  className="text-decoration-none d-flex align-items-center m-2"
+                  className="text-decoration-none d-flex align-items-center m-2 text-white"
                 >
                   Login
                 </Link>

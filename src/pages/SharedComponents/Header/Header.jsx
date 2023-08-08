@@ -4,7 +4,7 @@ import bg from "./../../../assets/header.jpg";
 import { motion } from "framer-motion";
 const Header = () => {
   return (
-    <div style={{ backgroundColor: "#8d8f90" }}>
+    <div style={{ backgroundColor: "#0056b3" }}>
       <div
         className="page-header"
         style={{
@@ -27,12 +27,7 @@ const Header = () => {
                   hidden: { opacity: 0, x: -50 },
                   visible: { opacity: 1, x: 0 },
                 }}
-              >
-                <h1 className="page-title text-center text-white font-weight-bold"
-                >
-                  WELCOME TO OUR TOY WORLD
-                </h1>
-              </motion.div>
+              ></motion.div>
             </Col>
           </Row>
         </Container>
@@ -51,10 +46,13 @@ const Header = () => {
         }}
       >
         <Container>
-          <div className="card-block bg-white mb-30 p-5">
+          <div className="card-block bg-white mb-30 p-5" style={{marginTop:"100px"}}>
             <Row>
               <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                 <div className="section-title mb-5">
+                  <h1 className="page-title text-center font-weight-bold">
+                    WELCOME TO OUR TOY WORLD
+                  </h1>
                   <h2 className="text-center font-weight-bold">
                     A perfect toy for young racers
                   </h2>

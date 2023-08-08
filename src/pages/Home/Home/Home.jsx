@@ -9,6 +9,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import product from "../../../assets/product.jpg";
 import KidsCar from "../KidsCar/KidsCar";
 import { motion } from "framer-motion";
+import ClientTestimonial from "../ClientTestimonial/ClientTestimonial";
 
 const container = {
   hidden: {},
@@ -45,7 +46,7 @@ const Home = () => {
           }}
         >
           <h2 className="mt-5">OUR GALLERY</h2>
-          <p className="py-2">
+          <p className="py-2 lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, commodi
             optio reiciendis iste dolores corrupti eveniet blanditiis harum
             explicabo enim.
@@ -95,7 +96,7 @@ const Home = () => {
           }}
         >
           <h2 className="mt-5">SUB CATEGORY</h2>
-          <p className="py-2">
+          <p className="py-2 lead">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, commodi
             optio reiciendis iste dolores corrupti eveniet blanditiis harum
             explicabo enim.
@@ -140,6 +141,10 @@ const Home = () => {
         </Container>
       </section>
       <KidsCar></KidsCar>
+      {/* client testimonial */}
+      <div className="mt-5">
+       <ClientTestimonial></ClientTestimonial>
+      </div>
     </div>
   );
 };

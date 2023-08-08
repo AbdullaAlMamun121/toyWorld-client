@@ -79,71 +79,78 @@ const MyToys = () => {
     };
 
     return (
-        <div>
-            <h3 className='text-center m-4'>MY TOYS HERE</h3>
-            <Container>
-                <Button onClick={() => handleSortOrder("price")} className='mb-2'>
-                    Sort by Price ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
-                </Button>
-                <Table striped>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Seller</th>
-                            <th>Toy Name</th>
-                            <th>Sub-category</th>
-                            <th>Price</th>
-                            <th>Available Quantity</th>
-                            <th>View Details</th>
-                            <th>Update</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {myToys.map((toy, index) => (
-                            <tr key={toy._id}>
-                                <td>{index + 1}</td>
-                                <td>{toy.data.sellerName}</td>
-                                <td>{toy.data.name}</td>
-                                <td>{toy.data.subCategory}</td>
-                                <td>{toy.data.price}</td>
-                                <td>{toy.data.quantity}</td>
-                                <td>
-                                    <Link className='btn btn-success' to={`/ToyViewDetails/${toy._id}`}>
-                                        View
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Button variant='primary' onClick={() => handleEditButtonClick(toy._id)}>
-                                        Edit
-                                    </Button>
-                                    <UpdateMyToys
-                                        show={modalShow[toy._id] || false}
-                                        onHide={() =>
-                                            setModalShow(prevState => ({
-                                                ...prevState,
-                                                [toy._id]: false,
-                                            }))
-                                        }
-                                        toy={toy}
-                                        handleToyUpdate={handleToyUpdate}
-                                    />
-                                </td>
-                                <td>
-                                    <Button
-                                        onClick={() => handleDeleteToy(toy._id)}
-                                        className='btn btn-success'
-                                        to='/'
-                                    >
-                                        Delete
-                                    </Button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            </Container>
-        </div>
+        <div className="py-5" style={{ backgroundColor: "#E0E7FF" }}>
+        <Container>
+          <h3 className="text-center m-4 text-primary py-5">MY TOYS HERE</h3>
+          <Button
+            onClick={() => handleSortOrder("price")}
+            className="mb-3"
+            variant="secondary"
+          >
+            Sort by Price ({sortOrder === "asc" ? "Ascending" : "Descending"})
+          </Button>
+          <Table striped bordered hover responsive style={{ backgroundColor: "#FFFFFF" }}>
+            <thead style={{ backgroundColor: "#007BFF", color: "#FFFFFF" }}>
+              <tr>
+                <th>#</th>
+                <th>Seller</th>
+                <th>Toy Name</th>
+                <th>Sub-category</th>
+                <th>Price</th>
+                <th>Available Quantity</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {myToys.map((toy, index) => (
+                <tr key={toy._id}>
+                  <td>{index + 1}</td>
+                  <td>{toy.data.sellerName}</td>
+                  <td>{toy.data.name}</td>
+                  <td>{toy.data.subCategory}</td>
+                  <td>{toy.data.price}</td>
+                  <td>{toy.data.quantity}</td>
+                  <td>
+                    <div className="d-flex justify-content-around">
+                      <Link
+                        className="btn btn-success btn-sm"
+                        to={`/ToyViewDetails/${toy._id}`}
+                      >
+                        View
+                      </Link>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={() => handleEditButtonClick(toy._id)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        onClick={() => handleDeleteToy(toy._id)}
+                        className="btn btn-danger btn-sm"
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                    <UpdateMyToys
+                      show={modalShow[toy._id] || false}
+                      onHide={() =>
+                        setModalShow((prevState) => ({
+                          ...prevState,
+                          [toy._id]: false,
+                        }))
+                      }
+                      toy={toy}
+                      handleToyUpdate={handleToyUpdate}
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Container>
+      </div>
+
     );
 };
 
