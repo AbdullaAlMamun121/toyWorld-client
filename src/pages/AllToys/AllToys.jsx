@@ -26,7 +26,7 @@ const AllToys = () => {
       });
   };
   return (
-    <div className="py-5" style={{ backgroundColor: "#E0E7FF", color: "#fff" }}>
+    <div className="py-5" style={{ backgroundColor: "#EFF6FF", color: "#fff" }}>
       <h3 className="text-center m-4 py-5 text-primary">ALL TOYS HERE</h3>
       <Form className="d-flex w-50 mx-auto mb-3">
         <input

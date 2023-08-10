@@ -79,7 +79,7 @@ const MyToys = () => {
     };
 
     return (
-        <div className="py-5" style={{ backgroundColor: "#E0E7FF" }}>
+        <div className="py-5" style={{ backgroundColor: "#EFF6FF" }}>
         <Container>
           <h3 className="text-center m-4 text-primary py-5">MY TOYS HERE</h3>
           <Button

@@ -3,9 +3,9 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 const KidsCar = () => {
   return (
-    <Container>
+    <Container className=" shadow-lg" style={{backgroundColor:"#E5F3FF",marginTop:"100px",borderRadius: "20px"}}>
       <motion.div
-      className="mt-5"
+      className="mt-5" 
          initial="hidden"
          whileInView="visible"
          viewport={{ once: true, amount: 0.5 }}

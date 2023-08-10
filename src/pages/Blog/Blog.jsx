@@ -4,7 +4,7 @@ import useTitle from '../../hooks/useTitle';
 const Blog = () => {
   useTitle("Blog")
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{backgroundColor:"#EFF6FF"}}>
       <div className="row">
         <div className="col-md-6 mx-auto">
           <div className="card mb-4">

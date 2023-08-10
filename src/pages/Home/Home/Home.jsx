@@ -16,7 +16,7 @@ const container = {
   visible: {
     transition: {
       staggerChildren: 0.2,
-      duration:1.5,
+      duration: 1.5,
     },
   },
 };
@@ -47,9 +47,10 @@ const Home = () => {
         >
           <h2 className="mt-5">OUR GALLERY</h2>
           <p className="py-2 lead">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, commodi
-            optio reiciendis iste dolores corrupti eveniet blanditiis harum
-            explicabo enim.
+            Explore a world of imagination and joy in our enchanting toy
+            gallery. Here, you'll discover an extensive collection of whimsical
+            playthings that spark the imagination of both young and
+            young-at-heart. 
           </p>
         </motion.div>
         <div
@@ -64,7 +65,6 @@ const Home = () => {
                   width: "100%",
                   height: "100%",
                   position: "relative",
-                 
                 }}
               >
                 <Gallery
@@ -75,7 +75,6 @@ const Home = () => {
                     height: "100%",
                     objectFit: "cover",
                   }}
-                  
                 />
               </div>
             </div>
@@ -112,13 +111,13 @@ const Home = () => {
           <DisplayCategory></DisplayCategory>
         </motion.div>
       </div>
-      <section className="py-5 bg-primary mb-4 text-light">
+      <section className="py-5 mb-4 text-light" style={{backgroundColor:"#C2D7FB"}}>
         <Container>
           <Row>
             <Col md={6}>
               <div className="section-content">
-                <h2 className="section-title">Discover Our Products</h2>
-                <p className="section-description">
+                <h2 className="section-title text-black">Discover Our Products</h2>
+                <p className="section-description text-black">
                   The remote control car is a popular car toy that allows
                   children to control the movements of a miniature car using a
                   handheld remote. It provides an exciting and interactive play
@@ -143,7 +142,7 @@ const Home = () => {
       <KidsCar></KidsCar>
       {/* client testimonial */}
       <div className="mt-5">
-       <ClientTestimonial></ClientTestimonial>
+        <ClientTestimonial></ClientTestimonial>
       </div>
     </div>
   );

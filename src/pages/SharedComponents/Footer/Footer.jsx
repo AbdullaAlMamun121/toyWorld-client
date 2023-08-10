@@ -5,7 +5,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import logo from '../../../../src/assets/logo.jpg';
 const Footer = () => {
     return (
-        <footer className="bg-dark text-white">
+        <footer className="text-white" style={{backgroundColor:"#246BE8"}}>
             <Container fluid className="py-5">
                 <Row className="justify-content-center">
                     <Col md={8} lg={6} className="text-center">
@@ -22,7 +22,7 @@ const Footer = () => {
                 <Row className="mt-4">
                     <Col md={4} className="text-center">
                         <div className="logo-section">
-                            <img style={{width:"50px", height:"40px"}} src={logo} alt="Logo" />
+                            <img style={{width:"50px", height:"40px", borderRadius:"100%"}} src={logo} alt="Logo" />
                         </div>
                         <h5>Toy World</h5>
                         <p>Our Company selling most beautiful toys in the hole countries</p>
@@ -30,10 +30,10 @@ const Footer = () => {
                     <Col md={4} className="text-center">
                         <h5>Our Navigation</h5>
                         <ul className="list-unstyled">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/services">Services</Link></li>
-                            <li><Link to="/contact">Contact</Link></li>
+                            <li><Link className="text-white" to="/">Home</Link></li>
+                            <li><Link className="text-white" to="/about">About Us</Link></li>
+                            <li><Link className="text-white" to="/services">Services</Link></li>
+                            <li><Link className="text-white" to="/contact">Contact</Link></li>
                         </ul>
                         <h5>Our Social Link</h5>
                         <div className="social-icons">
@@ -56,7 +56,7 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
-            <div className="bg-secondary text-center py-3">
+            <div className="text-center py-3 text-black" style={{backgroundColor:"#F0F3F5"}}>
                 <p>&copy; {new Date().getFullYear()} Toy Car. All rights reserved.</p>
             </div>
         </footer>

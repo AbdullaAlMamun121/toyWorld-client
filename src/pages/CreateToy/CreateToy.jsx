@@ -27,7 +27,7 @@ const CreateToy = () => {
   };
 
   return (
-    <section style={{ backgroundColor: "#E0E7FF" }}>
+    <section style={{ backgroundColor: "#EFF6FF" }}>
       <div className="container py-5">
         <h2 className="text-center" style={{ paddingTop: "100px" }}>
           Add A Toy

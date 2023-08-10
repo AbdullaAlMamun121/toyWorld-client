@@ -33,11 +33,11 @@ const NavigationBar = () => {
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="dark"
+        bg="#51BFFF"
         variant="dark"
         fixed="top"
         style={{
-            backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.2)" : "rgba(0, 0, 0, 0)", 
+            backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)", 
             transition: "background-color 0.3s ease",
           }}
       >
@@ -46,27 +46,27 @@ const NavigationBar = () => {
             style={{ width: "40px", height: "40px", borderRadius: "50%" }}
             src={logo}
           ></Image>
-          <Navbar.Brand href="#home" className="m-2">
+          <Navbar.Brand href="#home" className="m-2 text-black">
             Toy world
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2 text-white"
+                className="text-decoration-none d-flex align-items-center  m-2 text-black"
                 to="/"
               >
                 Home
               </Link>
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2 text-white"
+                className="text-decoration-none d-flex align-items-center  m-2 text-black"
                 to="/allToys"
               >
                 All Toys
               </Link>
               {user && (
                 <Link
-                  className="text-decoration-none d-flex align-items-center  m-2 text-white"
+                  className="text-decoration-none d-flex align-items-center  m-2 text-black"
                   to="/myToys"
                 >
                   My Toys
@@ -74,14 +74,14 @@ const NavigationBar = () => {
               )}
               {user && (
                 <Link
-                  className="text-decoration-none d-flex align-items-center  m-2 text-white"
+                  className="text-decoration-none d-flex align-items-center  m-2 text-black"
                   to="/createToy"
                 >
                   Add A Toy
                 </Link>
               )}
               <Link
-                className="text-decoration-none d-flex align-items-center  m-2 text-white"
+                className="text-decoration-none d-flex align-items-center  m-2 text-black"
                 to="/blog"
               >
                 Blogs
@@ -99,14 +99,14 @@ const NavigationBar = () => {
               {user ? (
                 <Link
                   onClick={handleLogout}
-                  className="text-decoration-none d-flex align-items-center m-2 text-white"
+                  className="text-decoration-none d-flex align-items-center m-2 text-black"
                 >
                   Logout
                 </Link>
               ) : (
                 <Link
                   to="/login"
-                  className="text-decoration-none d-flex align-items-center m-2 text-white"
+                  className="text-decoration-none d-flex align-items-center m-2 text-black"
                 >
                   Login
                 </Link>

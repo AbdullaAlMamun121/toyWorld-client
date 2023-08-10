@@ -1,16 +1,17 @@
 import React from "react";
 import { Carousel, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
-import bg from "./../../../assets/header.jpg";
+import bg from "./../../../assets/header.png";
 import { motion } from "framer-motion";
 const Header = () => {
   return (
-    <div style={{ backgroundColor: "#0056b3" }}>
+    <div style={{ backgroundColor: "#EFF6FF" }}>
       <div
         className="page-header"
         style={{
           background: `url(${bg}) no-repeat`,
           position: "relative",
           backgroundSize: "cover",
+
         }}
       >
         <Container>
@@ -46,7 +47,7 @@ const Header = () => {
         }}
       >
         <Container>
-          <div className="card-block bg-white mb-30 p-5" style={{marginTop:"100px"}}>
+          <div className="card-block bg-white mb-30 p-5 shadow-lg" style={{marginTop:"100px",borderRadius: "20px"}}>
             <Row>
               <Col xl={12} lg={12} md={12} sm={12} xs={12}>
                 <div className="section-title mb-5">
